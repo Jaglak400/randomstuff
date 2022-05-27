@@ -1,0 +1,37 @@
+<p id="a">
+<p id="b">
+<p id="c">
+<p id="d">  
+<style>
+body{
+background:#62374e;
+margin:0;
+}
+
+p{
+background:#fdc57b;
+width:50px;
+height:50px;
+position: absolute;
+}
+
+#a{
+top:34px;
+left:50px;
+}
+
+#b{
+top:34px;
+right:50px;
+}
+
+#c{
+bottom:34px;
+left:50px;
+}
+
+#d{
+bottom:34px;
+right:50px;
+} 
+</style>

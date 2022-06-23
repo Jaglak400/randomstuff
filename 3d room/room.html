@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css.css">
+</head>
+<body>
+<script type="text/javascript">
+    /*scrolling bug*/
+    window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+    }
+    /*light switch sound*/
+    function playAudio(click) {
+        var audio = new Audio(click);
+        audio.currentTime = 0; audio.play();
+    }
+
+
+</script>
+<input type="checkbox" id="lightswitch" onclick="playAudio('click.mp3')"/>
+<input type="checkbox" checked="checked" id="wall"/>  
+    <z>
+      <x>
+        <y>
+          <floor></floor>
+          <ceiling></ceiling>   
+          <wall>
+              <rathole class="pointer">
+                <a href="rathole.html" title="Easter Egg" class="ratEE">
+              </rathole>
+              </a>
+            <door>
+            <a target="_self" title="Exit" href="https://www.google.pl/" id="doorclick"></a>
+            </door>
+            <label for="lightswitch" class="pointer" title="Switch"></label>
+          </wall>
+        </y>
+      </x>
+    </z>
+</body>
+</html>

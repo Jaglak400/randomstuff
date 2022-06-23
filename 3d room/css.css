@@ -1,0 +1,230 @@
+.pointer {
+  cursor: pointer;
+}
+input {
+  display: none;
+}
+html {
+  font-size: 0.5vw;
+  width: 100%;
+  height: 100%;
+}
+body {
+  perspective: 50rem;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: #000;
+}
+
+body *, body *:before, body *:after {
+  transform-style: preserve-3d;
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+}
+x, y, z {
+  position: absolute;
+  top: -50rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 1rem;
+  height: 1rem;
+}
+floor, ceiling, floor:before, ceiling:before, floor:after, ceiling:after {
+  width: 300rem;
+  height: 300rem;
+}
+floor {
+  height: 400rem;
+  transform: rotateX(90deg) translate3d(-150rem, -50rem, 0rem);
+  /*floor panels, panels color and design */                                                   
+  background: linear-gradient(#000, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 7rem, rgba(17, 14, 18, 0.5) 7.6rem), radial-gradient(#b17f5b, #291507);
+}
+
+/*side walls colors*/
+floor:before, floor:after {
+  background: radial-gradient(circle at center top, #777777, #110e12);
+}
+
+/*side walls correct position*/
+floor:before {
+  transform: rotateY(90deg) translate3d(-150rem, 100rem, -150rem);
+}
+floor:after {
+  transform: rotateY(-90deg) translate3d(150rem, 100rem, -150rem);
+}
+
+/*ceiling correct position and color*/
+ceiling {
+  transform: rotateX(-90deg) translate3d(-150rem, 0, -200rem);
+  background: radial-gradient(#fff, #777777);
+}
+
+
+/*position*/
+wall {
+  transform: translate3d(-150rem, -50rem, -150rem);
+  background: radial-gradient(circle at 60% 80%, rgba(255, 255, 255, 0), rgba(17, 14, 18, 0.5)), linear-gradient(to right, rgba(17, 14, 18, 0.5), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(17, 14, 18, 0.5));
+  box-shadow: 0 0 1rem #110e12;
+  width: 300rem;
+  height: 250rem;
+}
+
+/*door wall*/
+wall:before, wall door {
+  width: 86rem;
+  height: 224rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 0 120rem #777777;
+  left: -10rem;
+  right: -10rem;
+  margin: auto;
+  top: 60rem;
+  transform: translate3d(0, 0, -1rem);
+}
+
+/*entire door*/
+wall door {
+  border: 5rem ridge #291507;
+  box-shadow: 1rem 0.5rem 1rem rgba(17, 14, 18, 0.5);
+  transform: translate3d(0, 0, 0.5rem);
+}
+
+/*door*/
+wall door:before {
+  width: 100%;
+  height: 185rem;
+  background-color: #694831;
+}
+
+/*door inside 3d depth frames*/
+wall door:after {
+  height: 28%;
+  width: 28%;
+  left: 14%;
+  top: 10%;
+  box-shadow: 1rem 1rem 0 #291507, 
+  -1rem -1rem 0 #291507, 
+  33rem 0 0 #694831, 
+  34rem 1rem 0 #291507, 
+  32rem -1rem 0 #291507, 
+  33rem 80rem 0 #694831, 
+  34rem 81rem 0 #291507, 
+  32rem 79rem 0 #291507, 
+  0 80rem 0 #694831, 
+  1rem 81rem 0 #291507, 
+  -1rem 79rem 0 #291507, 
+  49rem 42rem 0 -7.5rem #291507, 
+  49rem 42rem 0 -7.5rem #694831, 
+  48.5rem 41.5rem 0 -7.5rem #291507;
+}
+
+
+
+/*button form position*/
+wall label {
+  background: rgba(255, 255, 255, 0.5);
+  width: 8rem;
+  height: 8rem;
+  transform: translate3d(210rem, 130rem, 1rem);
+  border-radius: 1rem;
+  box-shadow: 0.5rem 1rem 2rem rgba(17, 14, 18, 0.5), inset 0.25rem 0.25rem 1rem #fff;
+}
+
+/*button little switch*/
+wall label:after {
+  width: 1rem;
+  height: 3rem;
+  box-shadow: 0 0 0 0.15rem #110e12, 0.15rem 0.5rem 0.5rem #110e12;
+  transform: translate3d(3.5rem, 2.5rem, 0);
+  opacity: 0.2;
+  border-radius: 0.15rem;
+  background: linear-gradient(rgba(255, 255, 255, 0), #fff);
+}
+
+/*floor shadow*/
+#lightswitch:checked ~ z > x > y > floor {
+  background: radial-gradient(#110e12, #000);
+}
+
+/*side walls shadow*/
+#lightswitch:checked ~ z > x > y > floor:before, #lightswitch:checked ~ z > x > y > floor:after {
+  background: radial-gradient(circle at 50% top, #000, #110e12, #000);
+}
+
+/*ceiling shadow*/
+#lightswitch:checked ~ z > x > y > ceiling {
+  background: radial-gradient(circle at center bottom, #000, #110e12, #110e12, #000);
+}
+
+/*door shadow ???*/ 
+#lightswitch:checked ~ z > x > y > wall:before { 
+  box-shadow: 0 0 0 120rem #110e12;
+}
+
+/*door frame*/ 
+#lightswitch:checked ~ z > x > y > wall > door {
+  border-color: #110e12;
+}
+
+/*door inside shadow*/ 
+#lightswitch:checked ~ z > x > y > wall > door:before {
+  background-color:#110e12;
+}
+
+/*door "3d" lines (#000 color) after clicking lightswitch */ 
+#lightswitch:checked ~ z > x > y > wall > door:after {
+  box-shadow: 1rem 1rem 0 #000, 
+  -1rem -1rem 0 #000, 
+  33rem 0 0 #110e12, 
+  34rem 1rem 0 #000, 
+  32rem -1rem 0 #000, 
+  33rem 80rem 0 #110e12, 
+  34rem 81rem 0 #000, 
+  32rem 79rem 0 #000, 
+  0 80rem 0 #110e12, 
+  1rem 81rem 0 #000, 
+  -1rem 79rem 0 #000, 
+  49rem 42rem 2rem -7.5rem rgba(0, 0, 0, 0.5), 
+  49rem 42rem 0 -7.5rem #000, 
+  48.5rem 41.5rem 0 -7.5rem #000;
+}
+
+/*ligthswitch*/
+#lightswitch:checked ~ z > x > y > wall > label { 
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 1rem 2rem 2rem #000, inset -0.25rem -0.25rem 1rem rgba(17, 14, 18, 0.25);
+}
+
+rathole{
+  background-color: #000;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  left: 10rem;
+  top: 244rem;
+
+}
+rathole:after{
+  background-color: #000;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top:-2rem;
+  border-radius: 50%;
+}
+
+a.ratEE{
+  height: 50px;
+  width: 50px;
+  display:block;
+}
+
+a {
+  width: 100%;
+  height: 100%;
+}

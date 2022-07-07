@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="morse.js"></script>
+    <style>
+        .bottom-line {
+            background-color: #1c1c1e;
+            height: 22.8rem;
+        }
+
+        .text-center {
+            color: white;
+            background-color: #1c1c1e;
+        }
+
+        body {
+            background-color: #333537;
+        }
+
+        .text-above-input {
+            font-weight: bold;
+            color: white;
+        }
+
+        #input,
+        #output {
+            background-color: #1c1c1e;
+            border-color: #333537;
+            color:white;
+        }
+        .btn{
+            color:white;
+            background-color: #333537;
+            border-color: #1c1c1e;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="text-center">Text to Morse Code Converter</h1>
+    <div class="top">
+    </div>
+    <div class="container d-flex justify-content-around align-items-center">
+        <div>
+            <span class="text-above-input">Input</span><br>
+            <textarea id="input" cols="50" rows="20"></textarea>
+        </div>
+        <button class="btn btn-md px-3 " onclick="convert()">Convert to Morse Code</button>
+        <div>
+            <span class="text-above-input">Output</span><br>
+            <textarea id="output" cols="50" rows="20"></textarea>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="bottom-line"></div>
+    </div>
+</body>
+
+</html>
